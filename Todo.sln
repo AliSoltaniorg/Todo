@@ -7,9 +7,26 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B26BC8C3-EED
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6E15DC03-3844-4437-AB43-0CE12DEFECF3}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "frontend", "src\frontend\frontend.esproj", "{8ACB142A-D4A1-43C8-A920-0D24756A900B}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8ACB142A-D4A1-43C8-A920-0D24756A900B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ACB142A-D4A1-43C8-A920-0D24756A900B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ACB142A-D4A1-43C8-A920-0D24756A900B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8ACB142A-D4A1-43C8-A920-0D24756A900B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ACB142A-D4A1-43C8-A920-0D24756A900B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ACB142A-D4A1-43C8-A920-0D24756A900B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8ACB142A-D4A1-43C8-A920-0D24756A900B} = {B26BC8C3-EED9-4598-B4E6-536756A316CE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5E072F34-10AE-4699-89FF-8A83453FE47B}
