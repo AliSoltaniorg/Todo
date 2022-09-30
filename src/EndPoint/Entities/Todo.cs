@@ -24,17 +24,8 @@ namespace EndPoint.Entities
         [Display(Name = "Is Start")]
         public bool IsStart { get; set; }
 
-        [Display(Name = "Is Resume")]
-        public bool IsResume { get; set; }
-
-        [Display(Name = "Is Stop")]
-        public bool IsStop { get; set; }
-
         [Display(Name = "Amount Time")]
         public DateTime AmountTime { get; set; }
-
-        [Display(Name = "Remaining Time")]
-        public DateTime RemainingTime { get; set; }
 
 
     }
