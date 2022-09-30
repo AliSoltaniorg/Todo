@@ -12,6 +12,11 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Context\" />
+    <Folder Include="DTOs\" />
+    <Folder Include="Services\Interfaces\" />
+    <Folder Include="Utilities\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 
 </Project>
