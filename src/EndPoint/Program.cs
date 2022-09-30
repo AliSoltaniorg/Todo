@@ -1,7 +1,20 @@
+using EndPoint.Context;
+using EndPoint.Services;
+using EndPoint.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TodoAppDbConntection"));
+});
 
+builder.Services.AddScoped<IAppDbContext,AppDbContext>();
+builder.Services.AddTransient<ITodoServices, TodoServices>();
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
