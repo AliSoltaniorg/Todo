@@ -1,4 +1,3 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Button, Form, InputGroup } from 'react-bootstrap';
 import { Search } from 'react-bootstrap-icons';
 import './Hero.css';
@@ -16,27 +15,31 @@ const Hero = () => {
             <div className="col-lg-6 mx-auto mt-4 mb-5">
                 <InputGroup className="shadow">
                     <Form.Control
-                        className="border-0 search-input"
+                        className="border-0 search-input p-3"
                         placeholder="Search in ToDo's"
                         aria-label="Search in ToDo's"
                         aria-describedby="basic-addon2"
                     />
-                    <Button variant="light" id="button-addon2">
+                    <Button variant="light" id="button-addon2" className="px-3">
                         <Search className="mb-1" />
                     </Button>
                 </InputGroup>
             </div>
             <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <Button variant="primary" className="shadow btn-lg px-4 gap-3">
-                    Add new todo
+                <Button
+                    variant="primary"
+                    className="shadow btn-lg px-4 gap-3"
+                    id="openmodal"
+                >
+                    ADD TODO
                 </Button>
                 <a
-                    className="btn btn-outline-secondary shadow btn-lg px-4"
+                    className="btn btn-outline-dark shadow btn-lg px-4"
                     target="_blank"
-                    href="https://github.com/alisoltaniorg/"
+                    href="https://github.com/alisoltaniorg/Todo"
                     rel="noreferrer"
                 >
-                    Github
+                    GITHUB
                 </a>
             </div>
         </div>

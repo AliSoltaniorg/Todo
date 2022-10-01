@@ -24,8 +24,8 @@ class Todo {
         this.description = todo.description;
         this.dueDate = todo.dueDate;
         this.reminderDate = todo.reminderDate;
-        this.isDone = todo.isDone;
-        this.isStart = todo.isStart;
+        this.isDone = false;
+        this.isStart = false;
         this.amountTime = todo.amountTime;
     }
 }
