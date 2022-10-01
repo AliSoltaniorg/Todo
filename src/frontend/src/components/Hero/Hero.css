@@ -1,0 +1,11 @@
+.bg-gradient-hero{
+    background: hsla(145, 84%, 73%, 1);
+    background: linear-gradient(45deg, hsla(145, 84%, 73%, 1) 0%, hsla(150, 61%, 48%, 1) 100%);
+    background: -moz-linear-gradient(45deg, hsla(145, 84%, 73%, 1) 0%, hsla(150, 61%, 48%, 1) 100%);
+    background: -webkit-linear-gradient(45deg, hsla(145, 84%, 73%, 1) 0%, hsla(150, 61%, 48%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#82F4B1", endColorstr="#30C67C", GradientType=1 );
+}
+.search-input{
+    box-shadow: none !important; 
+
+}

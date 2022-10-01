@@ -1,26 +1,33 @@
-class Todo{
-    id:number;
-    title:string;
-    description:string;
-    dueDate : string;
-    reminderDate:string;
-    isDone:boolean;
-    isStop:boolean;
-    isStart:boolean;
-    isResume:boolean;
-    constructor(id:number,title:string,description:string,dueDate:string,
-        reminderDate:string,isDone:boolean,isStop:boolean,isStart:boolean,isResume:boolean){
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.dueDate = dueDate;
-        this.reminderDate = reminderDate; 
-        this.isDone = isDone;
-        this.isStop = isStop;
-        this.isResume = isResume;
-        this.isStart:isStart;
+export type TodoType = {
+    id?: number;
+    title: string;
+    description?: string;
+    dueDate?: string;
+    reminderDate?: string;
+    isDone?: boolean;
+    isStart?: boolean;
+    amountTime?: string;
+};
+
+class Todo {
+    id?: number;
+    title: string;
+    description?: string;
+    dueDate?: string;
+    reminderDate?: string;
+    isDone?: boolean;
+    isStart?: boolean;
+    amountTime?: string;
+    constructor(todo: TodoType) {
+        this.id = todo.id;
+        this.title = todo.title;
+        this.description = todo.description;
+        this.dueDate = todo.dueDate;
+        this.reminderDate = todo.reminderDate;
+        this.isDone = todo.isDone;
+        this.isStart = todo.isStart;
+        this.amountTime = todo.amountTime;
     }
 }
 
-
-export default Todo
+export default Todo;

@@ -1,6 +1,7 @@
 export type CrudTypes<TEntity> = {
-    items:TEntity[],
-    onAddItem:(item : TEntity) => void,
-    onEditItem:(item: TEntity) => void,
-    onDeleteItem:(item: TEntity) => void,
-}
+    items: TEntity[];
+    isLoading: boolean;
+    onAddItem: (item: TEntity) => void;
+    onEditItem: (item: TEntity) => void;
+    onDeleteItem: (item: TEntity) => void;
+};
