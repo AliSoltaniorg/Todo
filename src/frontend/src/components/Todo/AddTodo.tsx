@@ -66,7 +66,7 @@ const AddTodo: FC<{ id?: string; onSubmit: (data: FormData) => void }> = (
                         type="datetime-local"
                         name="dueDate"
                         required
-                        defaultValue={tomDate.toISOString().slice(0, 16)}
+                        defaultValue={date.toISOString().slice(0, 16)}
                     />
                     <Feedback name="due date" />
                 </Form.Group>
@@ -81,14 +81,13 @@ const AddTodo: FC<{ id?: string; onSubmit: (data: FormData) => void }> = (
                 />
                 <Feedback name="due date" />
             </Form.Group>
-            <Form.Group className="mb-3">
+            <Form.Group>
                 <Form.Check
                     id="isStart"
                     name="isStart"
-                    label="Is Start"
+                    label="Start now"
                     defaultChecked={false}
                 />
-                <Feedback name="due date" />
             </Form.Group>
         </Form>
     );

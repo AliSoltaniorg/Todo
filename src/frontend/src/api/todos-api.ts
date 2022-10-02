@@ -11,3 +11,10 @@ export const getTodos = async () => {
     const data: Todo[] = response.data;
     return data;
 };
+
+export const addTodo = async (todo: Todo) => {
+    const response = await axios.post(url, todo);
+    if (response.status !== 200) throw new Error(response.statusText);
+    const data: Todo = response.data;
+    return data;
+};

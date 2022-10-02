@@ -6,7 +6,7 @@ import {
     useEffect,
     useState,
 } from 'react';
-import { getTodos } from '../api/todos-api';
+import { addTodo, getTodos } from '../api/todos-api';
 import { CrudTypes } from '../constants/types';
 import Todo from '../models/todo';
 
@@ -39,10 +39,17 @@ const TodosContextProvider: FC<PropsWithChildren> = (props) => {
         fetchTodosData();
     }, [fetchTodosData]);
 
-    const addTodoHandler = (todo: Todo) => {
-        setTodos((prevTodos) => {
-            return prevTodos.concat(todo);
-        });
+    const addTodoHandler = async (todo: Todo) => {
+        try {
+            setIsLoading(true);
+            const data = await addTodo(todo);
+            setTodos((prevTodos) => {
+                return prevTodos.concat(data);
+            });
+        } catch (error) {
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     const contextValues: CrudTypes<Todo> = {
