@@ -8,5 +8,7 @@ namespace EndPoint.Services.Interfaces
         Task<IEnumerable<Todo>> GetAll();
 
         Task<Todo> Add(Todo todo);
+        Task<Todo> Edit(Todo todo);
+        Task Delete(int id);
     }
 }

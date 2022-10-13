@@ -40,7 +40,7 @@ const TodoItem: FC<{ value: Todo }> = (props) => {
                 setIsDone(true);
                 setIsStart(false);
                 todosContext.onEditItem(todo.id, {
-                    title: todo.title,
+                    ...todo,
                     remainingTime: '00:00:00',
                     isDone: true,
                 });
@@ -65,9 +65,9 @@ const TodoItem: FC<{ value: Todo }> = (props) => {
         } else {
             clearInterval(timerId);
             setIsFinished(false);
-            if (totalSeconds !== seconds) {
+            if (totalSeconds !== seconds && timerId > 0) {
                 todosContext.onEditItem(todo.id, {
-                    title: todo.title,
+                    ...todo,
                     remainingTime: Time.parse(seconds).toString(),
                 });
             }

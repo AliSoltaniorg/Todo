@@ -6,7 +6,7 @@ import {
     useEffect,
     useState,
 } from 'react';
-import { addTodo, getTodos } from '../api/todos-api';
+import { addTodo, getTodos, editTodo, deleteTodo } from '../api/todos-api';
 import { CrudTypes } from '../constants/types';
 import Todo from '../models/todo';
 
@@ -59,9 +59,26 @@ const TodosContextProvider: FC<PropsWithChildren> = (props) => {
         }
     };
 
+    const editTodoHandler = async (id: any, item: Todo) => {
+        try {
+            const data = await editTodo(id, item);
+            setTodos((prevTodos) => {
+                const indexTodo = prevTodos.findIndex((todo) => todo.id === id);
+                const updatedTodos = prevTodos;
+                const updatedTodo = {
+                    ...updatedTodos[indexTodo],
+                    ...data,
+                };
+                updatedTodos[indexTodo] = updatedTodo;
+                return updatedTodos;
+            });
+        } catch (error) {}
+    };
+
     const deleteTodoHandler = async (id: any) => {
         try {
             setIsLoading(true);
+            await deleteTodo(id);
             setTodos((prevTodos) => {
                 return prevTodos.filter((todo) => todo.id !== id);
             });
@@ -73,24 +90,6 @@ const TodosContextProvider: FC<PropsWithChildren> = (props) => {
         } catch (error) {
         } finally {
             setIsLoading(false);
-        }
-    };
-
-    const editTodoHandler = (id: number, item: Todo) => {
-        try {
-            setTodos((prevTodos) => {
-                const indexTodo = prevTodos.findIndex((todo) => todo.id === id);
-                const updatedTodos = prevTodos;
-                const updatedTodo = {
-                    ...updatedTodos[indexTodo],
-                    ...item,
-                };
-                updatedTodos[indexTodo] = updatedTodo;
-                console.log(updatedTodo);
-                return updatedTodos;
-            });
-        } catch (error) {
-        } finally {
         }
     };
 

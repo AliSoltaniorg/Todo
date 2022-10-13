@@ -16,3 +16,16 @@ export const addTodo = async (todo: Todo) => {
     const data: Todo = response.data;
     return data;
 };
+
+export const editTodo = async (id: number, todo: Todo) => {
+    const response = await httpRequest().put(ENDPOINTS.Todos + id, todo);
+    if (response.status !== 200) throw new Error(response.statusText);
+    const data: Todo = response.data;
+    return data;
+};
+
+export const deleteTodo = async (id: number) => {
+    const response = await httpRequest().delete(ENDPOINTS.Todos + id);
+    if (response.status !== 200) throw new Error(response.statusText);
+    return response.status;
+};
