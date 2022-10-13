@@ -50,6 +50,7 @@ const TodosContextProvider: FC<PropsWithChildren> = (props) => {
             const data = await addTodo(todo);
             setTodos((prevTodos) => {
                 return prevTodos.concat({
+                    ...todo,
                     ...data,
                 });
             });

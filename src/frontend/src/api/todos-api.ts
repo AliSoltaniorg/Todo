@@ -6,8 +6,13 @@ import Todo from '../models/todo';
 export const getTodos = async () => {
     const response = await httpRequest().get(ENDPOINTS.Todos);
     if (response.status !== 200) throw new Error(response.statusText);
-    const data: Todo[] = response.data;
-    return data;
+    const todos: Todo[] = [];
+
+    response.data.forEach((item: Todo) => {
+        todos.push(new Todo({ ...item }));
+    });
+
+    return todos;
 };
 
 export const addTodo = async (todo: Todo) => {
