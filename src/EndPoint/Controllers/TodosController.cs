@@ -18,13 +18,13 @@ namespace EndPoint.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<TodosViewModel>> GetTodos()
+        public async Task<IEnumerable<Todo>> GetTodos()
         {
             return await _todoServices.GetAll();
         }
 
         [HttpPost]
-        public async Task<ActionResult<TodosViewModel>> AddTodo(Todo todo)
+        public async Task<ActionResult<Todo>> AddTodo(Todo todo)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.Values.SelectMany(c => c.Errors).Select(c => c.ErrorMessage).ToList());

@@ -9,19 +9,16 @@ namespace EndPoint.Services
     {
         public TodoServices(IServiceProvider services) : base(services) { }
 
-        public async Task<TodosViewModel> Add(Todo todo)
+        public async Task<Todo> Add(Todo todo)
         {
             var entry = await DbContext.Todos.AddAsync(todo);
             await DbContext.SaveChangesAsync();
-
-            var result = Mapper.Map<Todo, TodosViewModel>(entry.Entity);
-            return result;
+            return entry.Entity;
         }
 
-        public async Task<IEnumerable<TodosViewModel>> GetAll()
+        public async Task<IEnumerable<Todo>> GetAll()
         {
-            var result = Mapper.ProjectTo<TodosViewModel>(DbContext.Todos);
-            return await result.ToListAsync();
+            return await DbContext.Todos.ToListAsync();
         }
     }
 }

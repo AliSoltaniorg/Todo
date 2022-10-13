@@ -1,0 +1,27 @@
+.border-due{
+    animation-name: alertborder;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transition: border ease-out 0.5s;
+}
+
+.progress-height{
+    height: 25px;
+}
+
+.item{
+    border: 1px solid#f1ebff;
+    box-shadow: 0px 0px 15px 2px rgba(241,235,255,1);
+}
+
+@keyframes alertborder {
+    0%{
+        box-shadow: 0px 0px 3px -2px #f1ebff;
+    }
+    100%{
+        box-shadow: 0px 0px 7px 2px #8c61e8;
+    }
+}

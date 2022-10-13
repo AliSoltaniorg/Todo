@@ -11,16 +11,30 @@ const HomePage = () => {
 
     const { isShow, hideModal, showModal } = useModal();
 
+    let content: any | Todo[];
+
+    if (todosContext.items.length === 0)
+        content = <p className="text-center">No todo's have been added here</p>;
+    else content = <Todos items={todosContext.items} />;
+
+    if (todosContext.isActiveSearch && todosContext.searchItems.length !== 0)
+        content = <Todos items={todosContext.searchItems} />;
+
     useEffect(() => {
         document.getElementById('openmodal')!.onclick = () => {
             showModal();
         };
-    }, [showModal]);
+    }, []);
 
     const addTodoHandler = (data: FormData) => {
         const todo = new Todo({
             title: data.get('title')!.toString(),
             description: data.get('description')!.toString(),
+            dueDate: data.get('dueDate')!.toString(),
+            reminderDate: data.get('reminderDate')!.toString(),
+            isStart: Boolean(data.get('isStart')),
+            amountTime: data.get('amountTime')!.toString(),
+            isDone: false,
         });
         todosContext.onAddItem(todo);
         hideModal();
@@ -36,7 +50,7 @@ const HomePage = () => {
             >
                 <AddTodo id="form" onSubmit={addTodoHandler} />
             </Modal>
-            <Todos items={todosContext.items} />
+            {content}
         </>
     );
 };

@@ -19,9 +19,11 @@ const AddTodo: FC<{ id?: string; onSubmit: (data: FormData) => void }> = (
     };
 
     let date = new Date();
+    date.setSeconds(12600);
     let tomDate = new Date();
     tomDate.setDate(date.getDate() + 1);
     tomDate.setSeconds(12600);
+    date.setSeconds(3600);
     return (
         <Form
             noValidate
@@ -64,7 +66,7 @@ const AddTodo: FC<{ id?: string; onSubmit: (data: FormData) => void }> = (
                     <Form.Label>Reminder Date</Form.Label>
                     <Form.Control
                         type="datetime-local"
-                        name="dueDate"
+                        name="reminderDate"
                         required
                         defaultValue={date.toISOString().slice(0, 16)}
                     />
@@ -74,10 +76,11 @@ const AddTodo: FC<{ id?: string; onSubmit: (data: FormData) => void }> = (
             <Form.Group className="mb-3">
                 <Form.Label>Amount Time</Form.Label>
                 <Form.Control
-                    type="time"
+                    type="text"
                     name="amountTime"
                     required
-                    defaultValue={tomDate.toISOString().substring(11, 16)}
+                    defaultValue="01:00"
+                    placeholder="00:00"
                 />
                 <Feedback name="due date" />
             </Form.Group>

@@ -5,8 +5,8 @@ namespace EndPoint.Services.Interfaces
 {
     public interface ITodoServices
     {
-        Task<IEnumerable<TodosViewModel>> GetAll();
+        Task<IEnumerable<Todo>> GetAll();
 
-        Task<TodosViewModel> Add(Todo todo);
+        Task<Todo> Add(Todo todo);
     }
 }

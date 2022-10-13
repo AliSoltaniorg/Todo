@@ -1,6 +1,7 @@
 using EndPoint.Context;
 using EndPoint.Services;
 using EndPoint.Services.Interfaces;
+using EndPoint.Utilities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -14,11 +15,19 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddScoped<IAppDbContext,AppDbContext>();
 builder.Services.AddTransient<ITodoServices, TodoServices>();
-builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddAutoMapper(config=> config.AddProfile<MappingProfile>());
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddCors(setup =>
+{
+    setup.AddPolicy("react-app", config =>
+    {
+        config.WithOrigins("http://localhost:3000/").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+    });
+});
 
 var app = builder.Build();
 
@@ -28,6 +37,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("react-app");
 
 app.UseAuthorization();
 

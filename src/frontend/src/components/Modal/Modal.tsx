@@ -21,7 +21,7 @@ const Modal: FC<PropsWithChildren<Props>> = (props) => {
                     Close
                 </Button>
                 <Button
-                    variant="primary"
+                    variant="purple"
                     onClick={props.onSaveChanges}
                     form={props.form}
                     type="submit"

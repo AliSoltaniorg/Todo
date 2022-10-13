@@ -5,9 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #fdfdfd;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+.btn-purple{background-color: #7239ea;color: #fff;}.btn-purple:hover,.btn-purple:focus {background-color: #5014d0 !important; color: #fff !important;}
+.bg-purple-light{background-color: #f1ebff !important;}.text-purple{color: #7239ea !important;}
+.bg-purple{background-color: rgba(114,57,234,1) !important;color: #fff !important;}
+.alert-purple{background-color: #f1ebff !important; color: #7239ea !important; border-color: #E4E6EF;}
