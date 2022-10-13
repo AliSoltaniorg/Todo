@@ -47,13 +47,12 @@ const TodosContextProvider: FC<PropsWithChildren> = (props) => {
     const addTodoHandler = async (todo: Todo) => {
         try {
             setIsLoading(true);
+            const data = await addTodo(todo);
             setTodos((prevTodos) => {
                 return prevTodos.concat({
-                    ...todo,
-                    id: Math.floor(Math.random() * 100) + 1,
+                    ...data,
                 });
             });
-            const data = await addTodo(todo);
         } catch (error) {
         } finally {
             setIsLoading(false);

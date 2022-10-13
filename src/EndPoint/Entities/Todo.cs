@@ -21,12 +21,10 @@ namespace EndPoint.Entities
         [Display(Name = "Is Done")]
         public bool IsDone { get; set; }
 
-        [Display(Name = "Is Start")]
-        public bool IsStart { get; set; }
-
         [Display(Name = "Amount Time")]
-        public DateTime AmountTime { get; set; }
+        public string AmountTime { get; set; } = "00:00:00";
 
-
+        [Display(Name = "Remaining Time")]
+        public string RemainingTime { get; set; } = "00:00:00";
     }
 }
