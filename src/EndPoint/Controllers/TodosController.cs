@@ -1,7 +1,5 @@
 ﻿using EndPoint.Entities;
 using EndPoint.Services.Interfaces;
-using EndPoint.ViewModels;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EndPoint.Controllers
