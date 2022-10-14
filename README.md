@@ -2,7 +2,6 @@
 
 # Todo App
 
-A brief description of what this project does and who it's for
 A simple todo app where user can add their task. User can mark an added task as completed . They can delete only completed task or all added task as they wish.
 A simple todo app where user can add their tasks. User can set a due date then to alert you and users can set remider time to display notifications to you.
 You can set timer for tasks
