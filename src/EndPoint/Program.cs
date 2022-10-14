@@ -7,10 +7,12 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+IConfiguration Configuration = builder.Configuration;
+
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("TodoAppDbConntection"));
+    options.UseSqlServer(Configuration.GetConnectionString("TodoAppDbConntection"));
 });
 
 builder.Services.AddScoped<IAppDbContext,AppDbContext>();
@@ -25,7 +27,7 @@ builder.Services.AddCors(setup =>
 {
     setup.AddPolicy("react-app", config =>
     {
-        config.WithOrigins("http://localhost:3000/").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+        config.WithOrigins(Configuration.GetValue("Origins", "http://localhost:3000/")).AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
     });
 });
 
