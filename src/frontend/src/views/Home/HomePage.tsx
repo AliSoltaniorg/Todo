@@ -5,6 +5,7 @@ import Todos from '../../components/Todo/Todos';
 import { TodosContext } from '../../context/todos-context';
 import useModal from '../../hooks/useModal';
 import Todo from '../../models/todo';
+import ReactLoading from 'react-loading';
 
 const HomePage = () => {
     const todosContext = useContext(TodosContext);
@@ -50,7 +51,18 @@ const HomePage = () => {
             >
                 <AddTodo id="form" onSubmit={addTodoHandler} />
             </Modal>
-            {content}
+            {todosContext.isLoading ? (
+                <ReactLoading
+                    type="spinningBubbles"
+                    width={72}
+                    height={72}
+                    color="#7239ea"
+                    className="my-0 mx-auto"
+                    delay={0}
+                />
+            ) : (
+                content
+            )}
         </>
     );
 };

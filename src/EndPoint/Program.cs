@@ -40,6 +40,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseDeveloperExceptionPage();
+
 app.UseCors("react-app");
 
 app.UseAuthorization();

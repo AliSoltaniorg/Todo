@@ -78,7 +78,6 @@ const TodosContextProvider: FC<PropsWithChildren> = (props) => {
 
     const deleteTodoHandler = async (id: any) => {
         try {
-            setIsLoading(true);
             await deleteTodo(id);
             setTodos((prevTodos) => {
                 return prevTodos.filter((todo) => todo.id !== id);
@@ -90,7 +89,6 @@ const TodosContextProvider: FC<PropsWithChildren> = (props) => {
             }
         } catch (error) {
         } finally {
-            setIsLoading(false);
         }
     };
 
