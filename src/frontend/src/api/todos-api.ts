@@ -12,10 +12,11 @@ export const getTodos = async () => {
             ...item,
             isStart: item.isStart === undefined && false,
         });
+        console.log('due = ', todo.isDueDate && !todo.isDone && !todo.isStart);
         todos.push(todo);
     });
 
-    console.log(todos);
+   
 
     return todos;
 };
