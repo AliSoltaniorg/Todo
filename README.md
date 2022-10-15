@@ -37,7 +37,7 @@ You can set timer for tasks
 #### Put item
 
 ```http
-  GET /api/Todos/${id}
+  PUT /api/Todos/${id}
 ```
 
 | Parameter | Type     | Description                       |
