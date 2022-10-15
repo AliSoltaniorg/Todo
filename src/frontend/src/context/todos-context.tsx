@@ -46,17 +46,17 @@ const TodosContextProvider: FC<PropsWithChildren> = (props) => {
 
     const addTodoHandler = async (todo: Todo) => {
         try {
-            setIsLoading(true);
             const data = await addTodo(todo);
             setTodos((prevTodos) => {
-                return prevTodos.concat({
-                    ...todo,
-                    ...data,
-                });
+                return prevTodos.concat(
+                    new Todo({
+                        ...todo,
+                        ...data,
+                    })
+                );
             });
         } catch (error) {
         } finally {
-            setIsLoading(false);
         }
     };
 

@@ -2,11 +2,8 @@ import { FC, useCallback, useContext, useEffect, useState } from 'react';
 import Todo from '../../models/todo';
 import { Alert, Button, Card, ProgressBar } from 'react-bootstrap';
 import {
-    Bell,
     BellFill,
-    Calendar2Check,
     CalendarCheck,
-    CalendarHeart,
     Pause,
     Play,
     Stopwatch,
@@ -17,7 +14,7 @@ import Time from '../../Utils/Time/Time';
 import './TodoItem.css';
 import Transition from '../Transition/Transition';
 import CornerBadge from '../Badge/CornerBadge';
-const TodoItem: FC<{ value: Todo }> = (props) => {
+const TodoItem: FC<{ value: Todo; isDueDate?: boolean }> = (props) => {
     const todosContext = useContext(TodosContext);
 
     const todo = props.value;
@@ -82,7 +79,7 @@ const TodoItem: FC<{ value: Todo }> = (props) => {
     const timePercentage = Math.round((seconds / totalSeconds) * 100);
 
     return (
-        <Card className="mb-4 item">
+        <Card className={`mb-4 item ${props.isDueDate ? 'border-due' : ''}`}>
             {todo.isReminderDate && <CornerBadge bg="primary" />}
             <Card.Header className="bg-purple-light text-purple">
                 {todo.title}

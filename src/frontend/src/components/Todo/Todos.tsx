@@ -15,15 +15,16 @@ const Todos: FC<{ items: Todo[] }> = (props) => {
                     key={index}
                     classNames={{
                         enterActive: 'animate__animated animate__fadeIn',
-                        enterDone:
-                            todo.isDueDate && !todo.isDone && !todo.isStart
-                                ? 'border-due'
-                                : '',
                         exit: '',
                         exitActive: 'animate__animated animate__fadeOut',
                     }}
                 >
-                    <TodoItem value={todo} />
+                    <TodoItem
+                        value={todo}
+                        isDueDate={
+                            todo.isDueDate && !todo.isDone && !todo.isStart
+                        }
+                    />
                 </CSSTransition>
             ))}
         </TransitionGroup>

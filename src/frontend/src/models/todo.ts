@@ -36,6 +36,7 @@ class Todo {
         this.remainingTime = todo.remainingTime;
         this.isDueDate =
             new Date(todo.dueDate!).getDate() === new Date().getDate();
+
         this.isReminderDate = isReminderDate(todo.reminderDate!.toString());
     }
 }

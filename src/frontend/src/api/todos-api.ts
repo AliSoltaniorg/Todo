@@ -1,6 +1,5 @@
-import axios from 'axios';
 import httpRequest from '.';
-import { BASE_URL, ENDPOINTS } from '../constants/endpoints';
+import { ENDPOINTS } from '../constants/endpoints';
 import Todo from '../models/todo';
 
 export const getTodos = async () => {
@@ -9,8 +8,15 @@ export const getTodos = async () => {
     const todos: Todo[] = [];
 
     response.data.forEach((item: Todo) => {
-        todos.push(new Todo({ ...item }));
+        let todo: Todo = new Todo({
+            ...item,
+            isStart: item.isStart === undefined && false,
+        });
+        console.log('due = ', todo.isDueDate && !todo.isDone && !todo.isStart);
+        todos.push(todo);
     });
+
+    console.log(todos);
 
     return todos;
 };

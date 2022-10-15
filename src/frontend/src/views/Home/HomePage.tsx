@@ -33,7 +33,7 @@ const HomePage = () => {
             description: data.get('description')!.toString(),
             dueDate: data.get('dueDate')!.toString(),
             reminderDate: data.get('reminderDate')!.toString(),
-            isStart: Boolean(data.get('isStart')),
+            isStart: Boolean(data.get('isStart')?.toString()),
             amountTime: data.get('amountTime')!.toString(),
             isDone: false,
         });
