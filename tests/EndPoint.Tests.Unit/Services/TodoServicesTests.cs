@@ -58,5 +58,35 @@ namespace EndPoint.Tests.Unit.Services
             _dbSetMock.Verify(c => c.Update(It.IsAny<Todo>()));
             _dbContextMock.Verify(c => c.SaveChangesAsync(It.IsAny<CancellationToken>()));
         }
+
+        [Fact]
+        public void Should_Delete_Todo()
+        {
+            //arrange
+            _dbSetMock.Setup(c => c.FindAsync(It.IsAny<int>())).ReturnsAsync(new Todo());
+
+            //act
+            Func<Task> edit = async () => await _todoServices.Delete(0);
+            edit();
+
+            //assert
+            _dbSetMock.Verify(c => c.Remove(It.IsAny<Todo>()));
+            _dbContextMock.Verify(c => c.SaveChangesAsync(It.IsAny<CancellationToken>()));
+        }
+
+        [Fact]
+        public void Should_Not_Delete_When_Entity_Not_Found()
+        {
+            //arrange
+            _dbSetMock.Setup(c => c.FindAsync(It.IsAny<int>())).ReturnsAsync(()=> null);
+
+            //act
+            Func<Task> edit = async () => await _todoServices.Delete(0);
+            edit();
+
+            //assert
+            _dbSetMock.Verify(c => c.Remove(It.IsAny<Todo>()),Times.Never);
+            _dbContextMock.Verify(c => c.SaveChangesAsync(It.IsAny<CancellationToken>()),Times.Never);
+        }
     }
 }
