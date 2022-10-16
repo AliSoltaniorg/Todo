@@ -85,7 +85,7 @@ namespace EndPoint.Tests.Unit.Services
             edit();
 
             //assert
-            _dbSetMock.Verify(c => c.Remove(It.IsAny<Todo>()),Times.Never);
+            _dbSetMock.Verify(c => c.Update(It.IsAny<Todo>()),Times.Never);
             _dbContextMock.Verify(c => c.SaveChangesAsync(It.IsAny<CancellationToken>()),Times.Never);
         }
     }
