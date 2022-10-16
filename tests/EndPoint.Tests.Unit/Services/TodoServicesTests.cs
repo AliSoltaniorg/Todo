@@ -50,10 +50,13 @@ namespace EndPoint.Tests.Unit.Services
         {
             //arrange
 
-
             //act
+            Func<Task<Todo>> edit = async () => await _todoServices.Edit(new Todo());
+            edit();
 
             //assert
+            _dbSetMock.Verify(c => c.Update(It.IsAny<Todo>()));
+            _dbContextMock.Verify(c => c.SaveChangesAsync(It.IsAny<CancellationToken>()));
         }
     }
 }
