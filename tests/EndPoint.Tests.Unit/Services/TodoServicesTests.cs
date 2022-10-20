@@ -1,11 +1,7 @@
-﻿using EndPoint.Context;
-using EndPoint.Entities;
+﻿using EndPoint.Entities;
 using EndPoint.Services;
 using EndPoint.Services.Interfaces;
-using EndPoint.Tests.Unit.Helpers;
-using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Moq;
 
 namespace EndPoint.Tests.Unit.Services
