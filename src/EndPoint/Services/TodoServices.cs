@@ -1,6 +1,5 @@
 ﻿using EndPoint.Entities;
 using EndPoint.Services.Interfaces;
-using EndPoint.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace EndPoint.Services

@@ -44,7 +44,6 @@ class Time {
     }
 
     static parse(seconds: number): Time {
-        console.log('sec = ', seconds);
         const h = Math.floor(seconds / 3600).toString();
         const m = Math.floor((seconds % 3600) / 60).toString();
         const s = Math.floor((seconds % 3600) % 60).toString();

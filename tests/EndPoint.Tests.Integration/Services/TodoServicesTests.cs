@@ -87,26 +87,5 @@ namespace EndPoint.Tests.Integration.Services
             //assert
             _dbContext.Todos.Any(c => c.Title == todo.Title).Should().BeTrue();
         }
-
-
-        //private IContainer GetContainer()
-        //{
-        //    var container = new ContainerBuilder();
-
-        //    container.Register<IServiceProvider>(context =>
-        //    {
-        //        var serviceCollection = new ServiceCollection()
-        //        .AddEntityFrameworkInMemoryDatabase();
-        //        serviceCollection.AddTransient<IAppDbContext, AppDbContext>();
-        //        serviceCollection.AddDbContext<AppDbContext>(config =>
-        //        {
-        //            config.UseInMemoryDatabase("TodoAppDb");
-        //        });
-        //        var serviceProvider = serviceCollection.BuildServiceProvider();
-        //        return serviceProvider;
-        //    }).SingleInstance();
-
-        //    return container.Build();
-        //}
     }
 }
